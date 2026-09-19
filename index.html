@@ -126,7 +126,7 @@
                             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                         </svg>
-                        <span id="statusText">Redirecting automatically in <strong id="countdown" class="text-gold-400">5</strong>s...</span>
+                        <span id="statusText">Redirecting automatically in <strong id="countdown" class="text-gold-400">50</strong>s...</span>
                     </span>
                     <button id="cancelBtn" onclick="cancelRedirection()" class="text-xs text-slate-400 hover:text-white bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700/60 px-2.5 py-1 rounded-lg transition-colors font-medium">
                         Cancel
@@ -156,7 +156,7 @@
         
         let isCancelled = false;
 
-        // Update progress bar width dynamically per second
+        // Update progress bar width dynamically per second based on 50 seconds total
         const timer = setInterval(() => {
             if (isCancelled) return;
 
@@ -165,7 +165,7 @@
                 countdownEl.textContent = timeLeft;
             }
 
-            // Calculate progress percentage
+            // Calculate progress percentage out of 50 seconds
             const percentage = (timeLeft / 50) * 100;
             if (progressBarEl) {
                 progressBarEl.style.width = `${percentage}%`;
